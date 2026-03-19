@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
@@ -123,11 +127,7 @@ public class LGUIRoot : MonoBehaviour
                 System.Type scriptType = FindScriptType(uiScriptName);
                 if (scriptType != null)
                 {
-                    Component addedScript = gameObject.AddComponent(scriptType);
-                    if (addedScript != null)
-                    {
-                        Debug.Log($"[LGUI] 运行时自动添加了UI脚本: {uiScriptName}");
-                    }
+                    gameObject.AddComponent(scriptType);
                 }
                 else
                 {
@@ -168,9 +168,6 @@ public class LGUIRoot : MonoBehaviour
         List<UIBase> bindComponents = new List<UIBase>();
         List<string> validationErrors = new List<string>();
 
-        Debug.Log($"[LGUI] === 开始收集绑定组件 ===");
-        Debug.Log($"[LGUI] 当前GameObject: {gameObject.name}");
-
         UIBase[] allComponents = GetComponentsInChildren<UIBase>(true);
 
         foreach (var comp in allComponents)
@@ -197,7 +194,6 @@ public class LGUIRoot : MonoBehaviour
             if (comp.HasValidBinding)
             {
                 bindComponents.Add(comp);
-                Debug.Log($"[LGUI] ✓ 收集到组件: {comp.ComponentTypeName} [{comp.gameObject.name}] bindName='{comp.bindName}' bindId={comp.bindId}");
             }
             else
             {
@@ -214,8 +210,6 @@ public class LGUIRoot : MonoBehaviour
                 Debug.LogError($"  - {err}");
             }
         }
-
-        Debug.Log($"[LGUI] === 共收集到 {bindComponents.Count} 个有效绑定组件 ===");
 
         return bindComponents;
     }
@@ -245,6 +239,9 @@ public class LGUIRoot : MonoBehaviour
 
         StringBuilder sb = new StringBuilder();
 
+        sb.AppendLine("// 作者: 木枫LL");
+        sb.AppendLine("// GitHub: https://github.com/MuFengSteam/");
+        sb.AppendLine("// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0");
         sb.AppendLine("// ============================================");
         sb.AppendLine("// 此文件由LGUI自动生成，请勿手动修改");
         sb.AppendLine("// ============================================");
@@ -266,16 +263,12 @@ public class LGUIRoot : MonoBehaviour
 
         HashSet<string> generatedNames = new HashSet<string>();
 
-        Debug.Log($"[LGUI] === 开始生成绑定属性，共 {components.Count} 个组件 ===");
-
         foreach (var comp in components)
         {
             string bindName = comp.bindName;
-            Debug.Log($"[LGUI] 处理组件: {comp.GetType().Name}, bindName='{bindName}'");
 
             if (string.IsNullOrEmpty(bindName))
             {
-                Debug.Log($"[LGUI] 跳过: bindName为空");
                 continue;
             }
 
@@ -288,8 +281,6 @@ public class LGUIRoot : MonoBehaviour
 
             GenerateBindProperty(sb, comp, bindName);
         }
-
-        Debug.Log($"[LGUI] === 绑定属性生成完成，共生成 {generatedNames.Count} 个属性 ===");
 
         sb.AppendLine("}");
         return sb.ToString();
@@ -319,8 +310,6 @@ public class LGUIRoot : MonoBehaviour
     private void GenerateBindProperty(StringBuilder sb, UIBase comp, string bindName)
     {
         string fieldName = "_" + bindName.ToLower();
-
-        Debug.Log($"[LGUI] 生成属性: {bindName}, 组件类型: {comp.GetType().Name}, 实际类型: {comp.ComponentTypeName}");
 
         switch (comp)
         {
@@ -533,6 +522,9 @@ public class LGUIRoot : MonoBehaviour
     {
         StringBuilder sb = new StringBuilder();
 
+        sb.AppendLine("// 作者: 木枫LL");
+        sb.AppendLine("// GitHub: https://github.com/MuFengSteam/");
+        sb.AppendLine("// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0");
         sb.AppendLine("// ============================================");
         sb.AppendLine("// 此文件由LGUI自动生成");
         sb.AppendLine("// 可以在此文件中添加业务逻辑");
@@ -605,7 +597,6 @@ public class LGUIRoot : MonoBehaviour
                 sb.AppendLine($"    /// </summary>");
                 sb.AppendLine($"    public void {methodName}()");
                 sb.AppendLine("    {");
-                sb.AppendLine($"        Debug.Log(\"点击了 {methodName} 按钮\");");
                 sb.AppendLine("        // 在这里添加按钮点击逻辑");
                 sb.AppendLine("    }");
                 sb.AppendLine();
@@ -621,10 +612,6 @@ public class LGUIRoot : MonoBehaviour
 
     public void GenerateCode()
     {
-        Debug.Log($"[LGUI] === 开始生成代码 ===");
-        Debug.Log($"[LGUI] bindDataClassName: {bindDataClassName}");
-        Debug.Log($"[LGUI] uiScriptName: {uiScriptName}");
-
         if (string.IsNullOrEmpty(bindDataClassName) || string.IsNullOrEmpty(uiScriptName))
         {
             Debug.LogError("[LGUI] 请先设置 bindDataClassName 和 uiScriptName！");
@@ -642,8 +629,6 @@ public class LGUIRoot : MonoBehaviour
         string baseDirectory = "Assets/Scripts/Generated";
         string fullDirectory = Path.Combine(baseDirectory, directoryName);
 
-        Debug.Log($"[LGUI] 输出目录: {fullDirectory}");
-
         if (!Directory.Exists(baseDirectory))
         {
             Directory.CreateDirectory(baseDirectory);
@@ -658,7 +643,6 @@ public class LGUIRoot : MonoBehaviour
         {
             string bindDataPath = Path.Combine(fullDirectory, $"{bindDataClassName}.cs");
             File.WriteAllText(bindDataPath, bindDataCode);
-            Debug.Log($"[LGUI] ✓ 已生成/更新绑定数据类: {bindDataPath}");
         }
 
         string uiScriptPath = Path.Combine(fullDirectory, $"{uiScriptName}.cs");
@@ -668,16 +652,10 @@ public class LGUIRoot : MonoBehaviour
             if (!string.IsNullOrEmpty(scriptCode))
             {
                 File.WriteAllText(uiScriptPath, scriptCode);
-                Debug.Log($"[LGUI] ✓ 已生成UI脚本: {uiScriptPath}");
             }
-        }
-        else
-        {
-            Debug.Log($"[LGUI] ℹ UI脚本已存在，跳过生成: {uiScriptPath}");
         }
 
         AssetDatabase.Refresh();
-        Debug.Log("[LGUI] === 代码生成完成 ===");
     }
 #endif
 }

@@ -1,3 +1,7 @@
+﻿// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;

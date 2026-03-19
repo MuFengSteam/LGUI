@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -106,10 +110,6 @@ public class UIBindColor : UIBase
         {
             SetColor(color);
         }
-        else
-        {
-            Debug.LogWarning($"[UIBindColor] 无法解析颜色: {hexColor}");
-        }
     }
 
     public void SetColorByPreset(string presetKey)
@@ -118,10 +118,6 @@ public class UIBindColor : UIBase
         if (preset != null)
         {
             SetColor(preset.color);
-        }
-        else
-        {
-            Debug.LogWarning($"[UIBindColor] 未找到预设颜色: {presetKey}");
         }
     }
 

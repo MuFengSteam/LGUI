@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -213,12 +217,6 @@ public class UIBindTemplate : UIBase
                 unityButton.onClick.AddListener(() => onClick?.Invoke());
                 return;
             }
-
-            Debug.LogWarning($"[UIBindTemplate] 绑定组件 '{bindName}' 上没有 Button 组件");
-        }
-        else
-        {
-            Debug.LogWarning($"[UIBindTemplate] 找不到绑定组件: {bindName}");
         }
     }
 

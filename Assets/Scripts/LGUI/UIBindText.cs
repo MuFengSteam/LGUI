@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 
 public class UIBindText : UIBase
@@ -31,18 +35,9 @@ public class UIBindText : UIBase
         _textComponent = GetComponent<UIText>();
         if (_textComponent == null)
         {
-
             var uguiText = GetComponent<UnityEngine.UI.Text>();
-            if (uguiText != null)
-            {
-                Debug.LogWarning($"[UIBindText] 节点 '{gameObject.name}' 使用了UGUI原生Text，建议改用UIText组件");
-            }
 
             var tmpText = GetComponent<TMPro.TMP_Text>();
-            if (tmpText != null && !(tmpText is UIText))
-            {
-                Debug.LogWarning($"[UIBindText] 节点 '{gameObject.name}' 使用了TextMeshPro原生组件，建议改用UIText组件");
-            }
 
             _textComponent = gameObject.AddComponent<UIText>();
         }
@@ -131,12 +126,6 @@ public class UIBindText : UIBase
     protected override void OnValidate()
     {
         base.OnValidate();
-
-        var uguiText = GetComponent<UnityEngine.UI.Text>();
-        if (uguiText != null)
-        {
-            Debug.LogError($"[UIBindText] 节点 '{gameObject.name}' 使用了UGUI Text组件，请改用UIText组件！");
-        }
     }
 #endif
 }

@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 
 [AddComponentMenu("LGUI/UIBindPosition")]
@@ -70,7 +74,6 @@ public class UIBindPosition : UIBase
     {
         if (position == null || position.Length < 2)
         {
-            Debug.LogWarning($"[UIBindPosition] 位置数组无效，需要至少2个元素");
             return;
         }
         SetPosition(new Vector2(position[0], position[1]));

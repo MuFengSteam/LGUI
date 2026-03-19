@@ -1,5 +1,4 @@
 # LGUI
-
 ## 概述
 
 `LGUI` 是一套面向 Unity UGUI 的轻量级绑定框架。核心目标是把面板节点上的绑定组件收集起来，自动生成 `Panel` 与 `BindData` 代码，让业务层可以通过 `bindData.xxx = value` 或 `GetXxxByBindName()` 的方式直接操作 UI。
@@ -340,3 +339,9 @@ GetEffectByBindName("upgradeFx")?.Play("upgrade");
 
 - 本文档只描述当前仓库里 `LGUI` 目录的实际实现。
 - 某些外部系统如完整的语言管理、图片配置映射、面板总管理器，如果项目中另外提供，可以在不改导出配置数据的前提下接入。
+
+## 作者
+
+- 作者：木枫LL
+- GitHub地址：[MuFengSteam](https://github.com/MuFengSteam/LGUI)
+- 小红书：[木枫LL](https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0)

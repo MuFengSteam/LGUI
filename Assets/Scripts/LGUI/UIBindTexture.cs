@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,7 +66,6 @@ public class UIBindTexture : UIBase
 
         if (string.IsNullOrEmpty(path))
         {
-            Debug.LogWarning($"UIBindTexture: 路径为空");
             return;
         }
 
@@ -119,10 +122,6 @@ public class UIBindTexture : UIBase
         if (loadedTexture != null)
         {
             SetTexture(loadedTexture);
-        }
-        else
-        {
-            Debug.LogWarning($"UIBindTexture: 无法加载Texture资源: {normalizedAddress}");
         }
     }
 

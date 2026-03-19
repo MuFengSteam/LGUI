@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using System;
 using System.Reflection;
@@ -220,14 +224,10 @@ public class UIBasePanel : MonoBehaviour
             var enumValues = System.Enum.GetValues(buttonIDType);
             var enumNames = System.Enum.GetNames(buttonIDType);
 
-            Debug.Log($"[UIBasePanel] CacheButtonMethods: 找到 ButtonID 枚举，共 {enumNames.Length} 个值");
-
             for (int i = 0; i < enumNames.Length; i++)
             {
                 string enumName = enumNames[i];
                 uint buttonId = (uint)System.Convert.ToInt32(enumValues.GetValue(i));
-
-                Debug.Log($"[UIBasePanel] 查找方法: {enumName} (ID={buttonId})");
 
                 foreach (MethodInfo method in methods)
                 {
@@ -238,7 +238,6 @@ public class UIBasePanel : MonoBehaviour
                         if (parameters.Length == 0)
                         {
                             _buttonMethods[buttonId] = method;
-                            Debug.Log($"[UIBasePanel] 找到方法: {enumName} -> {method.Name}");
                         }
                         else if (parameters.Length == 1 && parameters[0].ParameterType == typeof(int))
                         {
@@ -267,12 +266,9 @@ public class UIBasePanel : MonoBehaviour
     {
         UIBindButton[] buttons = GetComponentsInChildren<UIBindButton>(true);
 
-        Debug.Log($"[UIBasePanel] BindAllButtons: 找到 {buttons.Length} 个按钮, 缓存了 {_buttonMethods.Count} 个方法");
-
         foreach (UIBindButton button in buttons)
         {
-                Debug.Log($"[UIBasePanel] 绑定按钮: {button.name}, buttonId={button.buttonId}, 方法存在={_buttonMethods.ContainsKey(button.buttonId)}");
-                button.RemoveAllListeners();
+            button.RemoveAllListeners();
 
             if (button.IsLongPressEnabled())
             {

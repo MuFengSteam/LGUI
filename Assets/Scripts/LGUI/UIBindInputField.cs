@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -55,11 +59,8 @@ public class UIBindInputField : UIBase
         _legacyInputField = GetComponent<InputField>();
         if (_legacyInputField != null)
         {
-            Debug.LogWarning($"[UIBindInputField] 节点 '{gameObject.name}' 使用了Legacy InputField，建议改用TMP_InputField");
             return;
         }
-
-        Debug.LogWarning($"[UIBindInputField] 节点 '{gameObject.name}' 没有找到InputField组件，请手动添加TMP_InputField");
     }
 
     private void ApplySettings()

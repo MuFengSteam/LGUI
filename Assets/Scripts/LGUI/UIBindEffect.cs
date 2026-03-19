@@ -1,3 +1,7 @@
+// 作者: 木枫LL
+// GitHub: https://github.com/MuFengSteam/
+// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -128,13 +132,11 @@ public class UIBindEffect : UIBase
     {
         if (string.IsNullOrEmpty(effectName))
         {
-            Debug.LogWarning($"UIBindEffect: 特效名称为空");
             return;
         }
 
         if (!_effectDict.TryGetValue(effectName, out var item))
         {
-            Debug.LogWarning($"UIBindEffect: 找不到特效 '{effectName}'");
             return;
         }
 
