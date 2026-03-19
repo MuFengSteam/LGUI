@@ -1,0 +1,94 @@
+# ==============================================================================
+# 一、Unity 项目专属文件/目录（核心分组，适配你的项目）
+# ==============================================================================
+# 项目工程文件
+*.csproj
+*.sln
+*.unityproj
+
+# Unity 编辑器配置（用户专属，不共享）
+*.userprefs
+*.uproject.user
+*.pidb
+*.suo
+*.meta
+
+# 3D 软件源文件/备份文件
+*.blend
+*.max
+*.ma
+*.mb
+*.fbx.bak
+
+# 纹理/材质备份文件
+*.tga.bak
+*.png.bak
+
+# Unity 临时/编译/日志目录
+TextMesh Pro
+Library
+ProjectSettings
+Packages
+obj
+Logs
+Temp
+# ==============================================================================
+# 二、构建/输出目录
+# ==============================================================================
+Build/
+Output/
+
+# ==============================================================================
+# 三、IDE/编辑器配置目录（跨平台，覆盖你的需求）
+# ==============================================================================
+# JetBrains 系列（IntelliJ IDEA、Rider 等）
+.idea/
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
+*.code-workspace
+# 补充：VS Code 本地配置（如果不需要共享）
+Client/.vscode/
+
+# ==============================================================================
+# 四、系统自动生成文件（跨平台）
+# ==============================================================================
+# macOS 系统文件
+.DS_Store
+
+# Windows 系统文件
+Thumbs.db
+desktop.ini
+
+# ==============================================================================
+# 五、临时/备份/日志文件
+# ==============================================================================
+*.swp
+*.tmp
+*.log
+*.bak
+
+# ==============================================================================
+# 六、版本控制冗余文件（修复你之前的 .svn 无效问题）
+# ==============================================================================
+# Subversion (SVN) 目录（斜杠表示匹配文件夹，生效更准确）
+.svn/
+AgentSkills/
+# 移除了无效的 *.svn、*.svnignore（前者不匹配文件夹，后者几乎不会出现）
+
+# Git 相关（注意：.git/ 无需忽略，Git 本身不会追踪自身目录；.gitignore/.gitattributes 是需要提交的，不要忽略）
+# 已移除你的 .git/、.gitignore、.gitattributes 规则（这些规则无效且多余）
+Client/Packages/packages-lock.json
+Client/ProjectSettings/PackageManagerSettings.asset
+Client/ProjectSettings/ProjectSettings.asset
+Client/ProjectSettings/ProjectVersion.txt
+Client/Packages/packages-lock.json
+Client/ProjectSettings/PackageManagerSettings.asset
+Client/ProjectSettings/ProjectSettings.asset
+Client/ProjectSettings/ProjectVersion.txt
+Assets/TextMesh Pro.meta
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/default-2022.dwlt
