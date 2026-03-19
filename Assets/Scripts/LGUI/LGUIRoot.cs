@@ -240,8 +240,6 @@ public class LGUIRoot : MonoBehaviour
         StringBuilder sb = new StringBuilder();
 
         sb.AppendLine("// 作者: 木枫LL");
-        sb.AppendLine("// GitHub: https://github.com/MuFengSteam/");
-        sb.AppendLine("// 小红书: https://www.xiaohongshu.com/user/profile/67c5dc1a000000000a03e5d0");
         sb.AppendLine("// ============================================");
         sb.AppendLine("// 此文件由LGUI自动生成，请勿手动修改");
         sb.AppendLine("// ============================================");
